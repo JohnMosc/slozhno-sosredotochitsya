@@ -1,14 +1,15 @@
 .page {
-  color: var(--main-color);
+  color: var(--main-color, #f1b2ce);
   font-family: var(--font-family);
   font-size: var(--main-font-size);
   line-height: var(--main-line-height);
-  background-color: var(--main-background-color);
+  background-color: var(--main-background-color, #000028);
   background-image: url(../images/cover-image-dark.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  position: relative;
 }
 
 .header {
@@ -25,7 +26,7 @@
 .header__decoration-element::before {
   content: "REC";
   position: absolute;
-  color: var(--decor-color);
+  color: var(--decor-color, #ff0070);
   inset-block-start: 10px;
   inset-inline-end: 38px;
 }
@@ -33,10 +34,10 @@
 .header__decoration-element::after {
   content: "";
   position: absolute;
-  border: 1px solid var(--decor-color);
+  border: 1px solid var(--decor-color, #ff0070);
   border-radius: 50%;
-  box-shadow: 0 0 4px var(--decor-color);
-  background-color: var(--decor-color);
+  box-shadow: 0 0 4px var(--decor-color, #ff0070);
+  background-color: var(--decor-color, #ff0070);
   inset-block-start: 18px;
   inset-inline-end: 19px;
   inline-size: 9px;
@@ -46,8 +47,8 @@
 .decorated-zone::before {
   content: "";
   position: absolute;
-  border-inline-end: 1px solid var(--decor-color);
-  border-block-start: 1px solid var(--decor-color);
+  border-inline-end: 1px solid var(--decor-color, #ff0070);
+  border-block-start: 1px solid var(--decor-color, #ff0070);
   inset-block-start: 10px;
   inset-inline-end: 10px;
   inline-size: 25px;
@@ -57,8 +58,8 @@
 .decorated-zone::after {
   content: "";
   position: absolute;
-  border-inline-start: 1px solid var(--decor-color);
-  border-block-end: 1px solid var(--decor-color);
+  border-inline-start: 1px solid var(--decor-color, #ff0070);
+  border-block-end: 1px solid var(--decor-color, #ff0070);
   inset-block-end: 10px;
   inset-inline-start: 10px;
   inline-size: 25px;
@@ -78,7 +79,7 @@
 .header__theme-menu-button {
   border: none;
   padding: 0 13px;
-  color: var(--button-color);
+  color: var(--button-color, #ff0070);
   font-family: inherit;
   line-height: 1;
   text-transform: lowercase;
@@ -86,7 +87,7 @@
 }
 
 .header__theme-menu-button_active {
-  outline: 1px solid var(--button-color);
+  outline: 1px solid var(--button-color, #ff0070);
   pointer-events: none;
   inline-size: 70px;
   block-size: 26px;
@@ -95,10 +96,10 @@
 .header__title {
   justify-self: start;
   align-self: center;
-  color: var(--main-title-color);
+  color: var(--main-title-color, #db00ff);
   font-weight: 700;
   line-height: 0.825;
-  text-shadow: 4px 4px 0 var(--shadow-color);
+  text-shadow: 4px 4px 0 var(--shadow-color, #ff0070);
 }
 
 .header__text {
@@ -132,13 +133,17 @@
 }
 
 .block-title {
-  color: var(--title-color);
+  color: var(--title-color, #ff0070);
 }
 
 .title-decor {
-  color: var(--title-decor-color);
-  background-color: var(--accent--background-color);
+  color: var(--title-decor-color, #000028);
+  background-color: var(--accent--background-color, #ff0070);
   font-weight: 700;
+}
+
+.heading-no-bold {
+  font-weight: normal;
 }
 
 .picture-gallery {
@@ -163,19 +168,19 @@
 }
 
 .footer__title {
-  color: var(--main-title-color);
+  color: var(--main-title-color, #db00ff);
   font-weight: 700;
   line-height: 0.825;
-  text-shadow: 2px 2px 0 var(--shadow-color);
+  text-shadow: 2px 2px 0 var(--shadow-color, #ff0070);
 }
 
 .text-link {
   text-decoration: none;
-  text-shadow: 2px 2px 0 var(--shadow-color);
+  text-shadow: 2px 2px 0 var(--shadow-color, #ff0070);
 }
 
 .header__theme-menu-button:hover {
-  outline: 1px solid var(--button-color-hover);
+  outline: 1px solid var(--button-color-hover, rgba(255, 0, 112, 0.4));
   inline-size: 70px;
   block-size: 26px;
 }
@@ -190,11 +195,11 @@
 }
 
 .header__theme-menu-button:focus-visible {
-  border-block-end: 1px solid var(--button-color);
+  border-block-end: 1px solid var(--button-color, #ff0070);
 }
 
 .text-link:focus-visible {
-  outline: 1px solid var(--focus-visible-color);
+  outline: 1px solid var(--focus-visible-color, #f1b2ce);
 }
 
 @media (width < 768px) {
@@ -312,7 +317,7 @@
   }
 
   .header__title {
-    text-shadow: 4px 4px 0 var(--accent-shadow-color);
+    text-shadow: 4px 4px 0 var(--accent-shadow-color, #ff0070);
   }
 
   .what__block {
@@ -322,6 +327,6 @@
   }
 
   .footer__title {
-    text-shadow: 2px 2px 0 var(--accent-shadow-color);
+    text-shadow: 2px 2px 0 var(--accent-shadow-color, #ff0070);
   }
 }
