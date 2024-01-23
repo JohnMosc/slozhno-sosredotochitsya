@@ -1,5 +1,327 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  color: var(--main-color);
+  font-family: var(--font-family);
+  font-size: var(--main-font-size);
+  line-height: var(--main-line-height);
+  background-color: var(--main-background-color);
+  background-image: url(../images/cover-image-dark.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  padding: 10px;
+  inline-size: 100%;
+  min-inline-size: 375px;
+  block-size: 100vb;
+  min-block-size: 668px;
+}
+
+.header__decoration-element::before {
+  content: "REC";
+  position: absolute;
+  color: var(--decor-color);
+  inset-block-start: 10px;
+  inset-inline-end: 38px;
+}
+
+.header__decoration-element::after {
+  content: "";
+  position: absolute;
+  border: 1px solid var(--decor-color);
+  border-radius: 50%;
+  box-shadow: 0 0 4px var(--decor-color);
+  background-color: var(--decor-color);
+  inset-block-start: 18px;
+  inset-inline-end: 19px;
+  inline-size: 9px;
+  block-size: 9px;
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  border-inline-end: 1px solid var(--decor-color);
+  border-block-start: 1px solid var(--decor-color);
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  border-inline-start: 1px solid var(--decor-color);
+  border-block-end: 1px solid var(--decor-color);
+  inset-block-end: 10px;
+  inset-inline-start: 10px;
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.header__theme-menu {
+  justify-self: end;
+  align-self: center;
+}
+
+.header__theme-menu-list {
+  display: grid;
+  gap: 13px;
+}
+
+.header__theme-menu-button {
+  border: none;
+  padding: 0 13px;
+  color: var(--button-color);
+  font-family: inherit;
+  line-height: 1;
+  text-transform: lowercase;
+  background-color: transparent;
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--button-color);
+  pointer-events: none;
+  inline-size: 70px;
+  block-size: 26px;
+}
+
+.header__title {
+  justify-self: start;
+  align-self: center;
+  color: var(--main-title-color);
+  font-weight: 700;
+  line-height: 0.825;
+  text-shadow: 4px 4px 0 var(--shadow-color);
+}
+
+.header__text {
+  justify-self: end;
+  align-self: center;
+}
+
+.content {
+  display: grid;
+  gap: 50px;
+  padding: 40px 10px;
+}
+
+.block {
+  display: grid;
+  gap: 20px;
+}
+
+.block-style {
+  display: grid;
+  gap: 20px;
+}
+
+.block__content {
+  display: grid;
+  gap: 10px;
+}
+
+.heading {
+  font-size: inherit;
+}
+
+.block-title {
+  color: var(--title-color);
+}
+
+.title-decor {
+  color: var(--title-decor-color);
+  background-color: var(--accent--background-color);
+  font-weight: 700;
+}
+
+.picture-gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.picture-gallery-img {
+  object-fit: cover;
+  object-position: center;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.footer {
+  position: relative;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  inline-size: 100%;
+  block-size: 100vb;
+}
+
+.footer__title {
+  color: var(--main-title-color);
+  font-weight: 700;
+  line-height: 0.825;
+  text-shadow: 2px 2px 0 var(--shadow-color);
+}
+
+.text-link {
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--shadow-color);
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--button-color-hover);
+  inline-size: 70px;
+  block-size: 26px;
+}
+
+.text-link:hover {
+  border-block-end: 1px solid;
+}
+
+.header__theme-menu-button:focus,
+.text-link:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid var(--button-color);
+}
+
+.text-link:focus-visible {
+  outline: 1px solid var(--focus-visible-color);
+}
+
+@media (width < 768px) {
+  .header__title {
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  }
+
+  .footer__title {
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  }
+}
+
+@media (width >= 768px) {
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__text {
+    inline-size: calc(50% - 11px);
+  }
+
+  .header {
+    padding: 20px 20px 20px 0;
+  }
+
+  .header__decoration-element::before {
+    inset-block-start: 20px;
+    inset-inline-end: 48px;
+  }
+
+  .header__decoration-element::after {
+    inset-block-start: 28px;
+    inset-inline-end: 29px;
+  }
+
+  .decorated-zone::after {
+    inset-block-end: 20px;
+    inset-inline-start: 20px;
+  }
+
+  .decorated-zone::before {
+    inset-block-start: 20px;
+    inset-inline-end: 20px;
+  }
+
+  .content {
+    gap: 80px;
+    padding: 60px 20px;
+  }
+
+  .why {
+    grid-template-columns: 32% 1fr;
+  }
+
+  .how {
+    grid-template-columns: 32% 1fr;
+    align-items: start;
+  }
+
+  .what__title {
+    max-inline-size: 32%;
+  }
+
+  .picture-gallery-title {
+    grid-area: picture-gallery-title;
+  }
+
+  .sunset {
+    grid-area: sunset;
+  }
+
+  .ice-cream {
+    grid-area: ice-cream;
+  }
+
+  .tape {
+    grid-area: tape;
+  }
+
+  .books {
+    grid-area: books;
+  }
+
+  .street {
+    grid-area: street;
+  }
+
+  .picture-gallery {
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas:
+      "picture-gallery-title picture-gallery-title picture-gallery-title"
+      "sunset sunset ice-cream"
+      "tape books ice-cream"
+      "tape street street"
+      "tape street street";
+    gap: 20px;
+  }
+}
+
+@media (width >= 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+    padding-inline-start: 20px;
+  }
+  .header__theme-menu-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .header__title {
+    text-shadow: 4px 4px 0 var(--accent-shadow-color);
+  }
+
+  .what__block {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    gap: 20px;
+  }
+
+  .footer__title {
+    text-shadow: 2px 2px 0 var(--accent-shadow-color);
+  }
 }
